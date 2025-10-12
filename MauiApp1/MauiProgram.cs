@@ -28,7 +28,8 @@ namespace MauiApp1
 
 			builder.Services.AddPageRegistry(registry =>
             {
-				registry.MapPage<MainPage, MainViewModel>()
+				registry.MapPage<LandingPage, LandingViewModel>()
+				    .MapPage<MainPage, MainViewModel>()
 					;
 			});
 
