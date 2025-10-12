@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:behaviors="clr-namespace:Nkraft.MvvmEssentials.Behaviors;assembly=Nkraft.MvvmEssentials"
+	xmlns:local="clr-namespace:MauiApp1"
+	xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+	android:TabbedPage.ToolbarPlacement="Bottom"
+	x:DataType="local:MainViewModel"
+	x:Class="MauiApp1.MainPage">
+
+	<TabbedPage.Behaviors>
+		<behaviors:TabSelectionBehavior />
+	</TabbedPage.Behaviors>
+
+	<NavigationPage Title="Home">
+		<x:Arguments>
+			<local:HomePage BindingContext="{Binding HomeViewModel}" />
+		</x:Arguments>
+	</NavigationPage>
+
+	<NavigationPage Title="Settings">
+		<x:Arguments>
+			<local:SettingsPage BindingContext="{Binding SettingsViewModel}" />
+		</x:Arguments>
+	</NavigationPage>
+
+</TabbedPage>
