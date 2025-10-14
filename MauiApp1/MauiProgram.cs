@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Mopups.Hosting;
 using Nkraft.MvvmEssentials.Extensions;
 using System.Reflection;
 
@@ -15,10 +16,11 @@ namespace MauiApp1
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+			    .ConfigureMopups();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+			builder.Logging.AddDebug();
 #endif
 
             builder.Services.AddSingleton(SemanticScreenReader.Default);
@@ -30,6 +32,7 @@ namespace MauiApp1
             {
 				registry.MapPage<LandingPage, LandingViewModel>()
 				    .MapPage<MainPage, MainViewModel>()
+				    .MapPage<ConfirmPopup, ConfirmViewModel>()
 					;
 			});
 
