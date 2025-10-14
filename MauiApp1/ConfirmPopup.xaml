@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<nkraft:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:nkraft="clr-namespace:Nkraft.MvvmEssentials.Pages;assembly=Nkraft.MvvmEssentials"
-             xmlns:local="clr-namespace:MauiApp1"
-             x:DataType="local:ConfirmViewModel"
-             x:Class="MauiApp1.ConfirmPopup"
-             HasSystemPadding="True"
-             Padding="10"
-             Title="Confirm">
+<nkraft:PopupPage
+	xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:nkraft="clr-namespace:Nkraft.MvvmEssentials.Pages;assembly=Nkraft.MvvmEssentials"
+	xmlns:local="clr-namespace:MauiApp1"
+	x:DataType="local:ConfirmViewModel"
+	x:Class="MauiApp1.ConfirmPopup"
+	HasSystemPadding="True"
+	Padding="10"
+	Title="Confirm">
 	<Border
 		VerticalOptions="Center" 
 		HorizontalOptions="Center"
