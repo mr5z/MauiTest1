@@ -38,7 +38,7 @@ public partial class HomeViewModel(ISemanticScreenReader screenReader, IPopupSer
 		if (Count % 5 == 0)
 		{
 			var navParams = new NavigationParameters { { nameof(ConfirmViewModel.ConfirmationMessage), "Reset counter?" } };
-			var result = await _popupService.ShowAsync<ConfirmViewModel, ConfirmResult>(navParams);
+			var result = await _popupService.PresentAsync<ConfirmViewModel, ConfirmResult>(navParams);
 			if (result.TryGetValue(out var confirmResult))
 			{
 				Console.WriteLine("User pressed: {0}", confirmResult.Confirm ? "Yes" : "No");
