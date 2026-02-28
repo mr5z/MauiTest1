@@ -2,6 +2,7 @@
 using Mopups.Hosting;
 using Nkraft.MvvmEssentials.Extensions;
 using System.Reflection;
+using Nkraft.MvvmEssentials;
 
 namespace MauiApp1
 {
@@ -17,6 +18,13 @@ namespace MauiApp1
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 })
+                .ConfigureMvvmEssentials(executingAssembly: Assembly.GetExecutingAssembly(), registry =>
+                {
+	                registry.MapPage<LandingPage, LandingViewModel>(isInitial: true)
+		                .MapPage<MainPage, MainViewModel>()
+		                .MapPage<ConfirmPopup, ConfirmViewModel>()
+		                ;
+                })
 			    .ConfigureMopups();
 
 #if DEBUG
@@ -28,18 +36,8 @@ namespace MauiApp1
 			builder.Services.AddTransient<HomeViewModel>();
 			builder.Services.AddTransient<SettingsViewModel>();
 
-			builder.Services.AddPageRegistry(registry =>
-            {
-				registry.MapPage<LandingPage, LandingViewModel>()
-				    .MapPage<MainPage, MainViewModel>()
-				    .MapPage<ConfirmPopup, ConfirmViewModel>()
-					;
-			});
-
-			builder.Services.AddNavigationService(options =>
-				options.AssemblyPageSource = Assembly.GetExecutingAssembly()
-			);
-
+			builder.Services.AddDiscoveredAppStartup();
+			
 			return builder.Build();
         }
     }

@@ -4,10 +4,12 @@ namespace MauiApp1;
 
 public class SettingsViewModel : TabViewModel
 {
-	public override void OnTabSelected()
-	{
-		base.OnTabSelected();
+    protected override void OnTabSelected()
+    {
+        base.OnTabSelected();
 
-		Console.WriteLine("Settings tab selected");
-	}
+        Console.WriteLine("Settings tab selected");
+    }
 }
+
+

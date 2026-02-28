@@ -11,14 +11,14 @@ public partial class HomeViewModel(ISemanticScreenReader screenReader, IPopupSer
 	private readonly ISemanticScreenReader _screenReader = screenReader;
 	private readonly IPopupService _popupService = popupService;
 
-	public override void OnTabSelected()
+	protected override void OnTabSelected()
 	{
 		base.OnTabSelected();
 
 		Console.WriteLine("Home tab selected");
 	}
 
-	public override void OnTabUnselected()
+	protected override void OnTabUnselected()
 	{
 		base.OnTabUnselected();
 
@@ -31,9 +31,9 @@ public partial class HomeViewModel(ISemanticScreenReader screenReader, IPopupSer
 		Count++;
 
 		if (Count == 1)
-			CountButtonText = $"Clicked {Count} time";
+			CountButtonText = $"Clicked !! {Count} time";
 		else
-			CountButtonText = $"Clicked {Count} times";
+			CountButtonText = $"Clicked @@ {Count} times";
 
 		if (Count % 5 == 0)
 		{

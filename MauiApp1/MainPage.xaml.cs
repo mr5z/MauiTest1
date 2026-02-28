@@ -6,4 +6,9 @@ public partial class MainPage
     {
         InitializeComponent();
     }
+
+    protected override bool OnBackButtonPressed()
+    {
+        return Mopups.Services.MopupService.Instance.PopupStack.Any();
+    }
 }

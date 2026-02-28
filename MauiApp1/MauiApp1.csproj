@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net9.0-android</TargetFrameworks>
+		<TargetFramework>net10.0-android</TargetFramework>
 
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MauiApp1</RootNamespace>
@@ -20,10 +20,20 @@
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
 
-		<!-- To develop, package, and publish an app to the Microsoft Store, see: https://aka.ms/MauiTemplateUnpackaged -->
-		<WindowsPackageType>None</WindowsPackageType>
-
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+
+		<LangVersion>preview</LangVersion>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)'))=='android' and '$(Configuration)' == 'Debug'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+		<AndroidUseAapt2>true</AndroidUseAapt2>
+		<AndroidPackageFormat>apk</AndroidPackageFormat>
+		<AndroidUseSharedRuntime>true</AndroidUseSharedRuntime>
+		<EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+		<AndroidCreatePackagePerAbi>false</AndroidCreatePackagePerAbi>
+		<AndroidLinkMode>None</AndroidLinkMode>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -46,11 +56,16 @@
 
 	<ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.120" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.10" />
-		<PackageReference Include="Nkraft.MvvmEssentials" Version="1.0.17" />
-		<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.41" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.10" />
+	<PackageReference Include="Nkraft.MvvmEssentials" Version="1.1.1" />
+	<PackageReference Include="PropertyChanged.Fody" Version="4.1.0" PrivateAssets="All" />
 	</ItemGroup>
+
+	<PropertyGroup>
+		<EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+		<CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)Generated</CompilerGeneratedFilesOutputPath>
+	</PropertyGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="ConfirmPopup.xaml">

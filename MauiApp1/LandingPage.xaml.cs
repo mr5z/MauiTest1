@@ -1,6 +1,6 @@
 namespace MauiApp1;
 
-public partial class LandingPage : ContentPage
+public partial class LandingPage
 {
 	public LandingPage()
 	{
