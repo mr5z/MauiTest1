@@ -26,5 +26,13 @@ internal class LandingViewModel(INavigationService navigationService) : PageView
 			.NavigateAsync();
 	}
 
+	protected override void OnDispose()
+	{
+		base.OnDispose();
+
+		var a = 1;
+		var b = a + 2;
+	}
+
 	public string? CountdownText { get; set; }
 }

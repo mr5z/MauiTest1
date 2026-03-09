@@ -22,6 +22,8 @@ namespace MauiApp1
                 {
 	                registry.MapPage<LandingPage, LandingViewModel>(isInitial: true)
 		                .MapPage<MainPage, MainViewModel>()
+		                .RegisterTab<HomeViewModel>()
+		                .RegisterTab<SettingsViewModel>()
 		                .MapPage<ConfirmPopup, ConfirmViewModel>()
 		                ;
                 })
@@ -32,9 +34,6 @@ namespace MauiApp1
 #endif
 
             builder.Services.AddSingleton(SemanticScreenReader.Default);
-
-			builder.Services.AddTransient<HomeViewModel>();
-			builder.Services.AddTransient<SettingsViewModel>();
 
 			builder.Services.AddDiscoveredAppStartup();
 			
