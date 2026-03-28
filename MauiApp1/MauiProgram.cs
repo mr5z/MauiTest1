@@ -2,6 +2,7 @@
 using Mopups.Hosting;
 using Nkraft.MvvmEssentials.Extensions;
 using System.Reflection;
+using CommunityToolkit.Maui;
 using Nkraft.MvvmEssentials;
 
 namespace MauiApp1
@@ -13,6 +14,7 @@ namespace MauiApp1
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
