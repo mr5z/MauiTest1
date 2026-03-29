@@ -24,8 +24,8 @@ namespace MauiApp1
                 {
 	                registry.MapPage<LandingPage, LandingViewModel>(isInitial: true)
 		                .MapPage<MainPage, MainViewModel>()
-		                .RegisterTab<HomeViewModel>()
-		                .RegisterTab<SettingsViewModel>()
+		                .RegisterPage<HomeViewModel>()
+		                .RegisterPage<SettingsViewModel>()
 		                .MapPage<ConfirmPopup, ConfirmViewModel>()
 		                ;
                 })
